@@ -1,7 +1,51 @@
-.ball__line {
+.ball__line--sec {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 28px;
+  bottom: 15px;
+  width: 100px;
+  height: 2px;
+  background-color: #bf8a51;
+}
+
+.animate__sec {
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #bf8a51;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.ball__line--min {
+  position: absolute;
+  right: 235px;
+  bottom: 15px;
+  width: 100px;
+  height: 2px;
+  background-color: #bf8a51;
+}
+
+.animate__min {
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #bf8a51;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.ball__line--hour {
+  position: absolute;
+  right: 440px;
+  bottom: 15px;
   width: 100px;
   height: 2px;
   background-color: #bf8a51;
@@ -9,23 +53,28 @@
 
 .animate__hour {
   position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
+  bottom: -4px;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
   background-color: #bf8a51;
-  right: 50px;
-  bottom: 10px;
-  animation-duration: 1s;
+  animation-duration: 3600s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-.animate {
+.animate__on {
   animation-name: ball;
+}
+
+.animate__pause {
+  animation-play-state: paused;
 }
 
 @keyframes ball {
   from {
-    left: 2000;
+    left: 100px;
   }
 
   to {

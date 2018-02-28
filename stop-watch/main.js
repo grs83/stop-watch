@@ -1,10 +1,10 @@
 var $startButton = document.querySelector("#button__start");
+var $pauseButton = document.querySelector("#button__pause");
 var $hours = document.querySelector("#hours");
 var $minutes = document.querySelector("#minutes");
 var $seconds = document.querySelector("#seconds");
 
 var timerSeconds = 0;
-var isIntervalInProgress = false;
 
 function interval() {
   timerSeconds++;
@@ -12,6 +12,9 @@ function interval() {
 
 function displayTime(seconds) {
   var calcHours = Math.floor(seconds / 3600);
+  if (calcHours < 10) {
+    calcHours = "0" + calcHours;
+  }
   var calcMin = Math.floor((seconds - calcHours * 3600) / 60);
   if (calcMin < 10) {
     calcMin = "0" + calcMin;
@@ -34,14 +37,55 @@ function watchDisplay($hour, $min, $sec) {
   $sec.textContent = displayTime(timerSeconds).sec;
 }
 
-$startButton.addEventListener("click", function() {
+function toggleAnimationOn() {
+  var $animate_ball_class = document.querySelectorAll(".animate");
+  for (var i = 0; i < $animate_ball_class.length; i++) {
+    $animate_ball_class[i].classList.remove("animate__pause");
+    if (isIntervalInProgress === true) {
+      $animate_ball_class[i].classList.add("animate__on");
+    }
+  }
+}
+
+function toggleAnimationPause() {
+  var $animate_ball_class = document.querySelectorAll(".animate");
+  $animate_ball_class[2].classList.remove("animate__on");
+  for (var i = 0; i < $animate_ball_class.length - 1; i++) {
+    if (isIntervalInProgress === false) {
+      $animate_ball_class[i].classList.add("animate__pause");
+    }
+  }
+}
+
+function toggleAnimationOff() {
+  var $animate_ball_class = document.querySelectorAll(".animate");
+  for (var i = 0; i < $animate_ball_class.length; i++) {
+    if (isIntervalInProgress === false) {
+      $animate_ball_class[i].classList.remove("animate__on");
+    }
+  }
+}
+
+var isIntervalInProgress = false;
+var intervalID = null;
+
+function initateInterval() {
   if (isIntervalInProgress === false) {
-    setInterval(function() {
-      if (isIntervalInProgress === false) {
-        isIntervalInProgress = true;
-      }
+    intervalID = setInterval(function() {
+      isIntervalInProgress = true;
       interval();
       watchDisplay($hours, $minutes, $seconds);
+      toggleAnimationOn();
     }, 1000);
   }
+}
+
+$startButton.addEventListener("click", function() {
+  initateInterval();
+});
+
+$pauseButton.addEventListener("click", function() {
+  isIntervalInProgress = false;
+  toggleAnimationPause();
+  clearInterval(intervalID);
 });

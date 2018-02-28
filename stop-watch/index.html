@@ -13,23 +13,23 @@
         <h1 class="title">STOP WATCH</h1>
         <div class="display__wrapper">
             <p class="display__time">
-              <span id="hours">0</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+              <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
             </p>
-            <div class="ball__line">
-              <div class="animate__hour"></div>
+            <div class="ball__line--hour">
+              <div class="animate__hour animate"></div>
             </div>
-            <div class="ball__line">
-              <div class="animate__min"></div>
+            <div class="ball__line--min">
+              <div class="animate__min animate"></div>
             </div>
-            <div class="ball__line">
-              <div class="animate__sec"></div>
+            <div class="ball__line--sec">
+              <div class="animate__sec animate"></div>
             </div>
         </div>
         <div class="button__outer">
           <div class="button__inner">
             <button class="button__sizing" id="button__start">Start</button>
-            <!-- <button class="button__sizing" id="button__pause">Pause</button>
-            <button class="button__sizing" id="button__stop">Stop</button>
+            <button class="button__sizing" id="button__pause">Pause</button>
+            <!-- <button class="button__sizing" id="button__stop">Stop</button>
             <div class="button__limit">
               <input class="button__limit--input" type="number" name="" id="limit__set" placeholder="Enter Ending Limit">
               <button class="button__limit--button" id="limit__set--enter">Enter</button>
