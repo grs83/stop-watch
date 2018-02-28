@@ -1,0 +1,34 @@
+.ball__line {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 100px;
+  height: 2px;
+  background-color: #bf8a51;
+}
+
+.animate__hour {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #bf8a51;
+  right: 50px;
+  bottom: 10px;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.animate {
+  animation-name: ball;
+}
+
+@keyframes ball {
+  from {
+    left: 2000;
+  }
+
+  to {
+    left: -100px;
+  }
+}
