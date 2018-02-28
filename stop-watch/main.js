@@ -4,6 +4,7 @@ var $minutes = document.querySelector("#minutes");
 var $seconds = document.querySelector("#seconds");
 
 var timerSeconds = 0;
+var isIntervalInProgress = false;
 
 function interval() {
   timerSeconds++;
@@ -34,8 +35,13 @@ function watchDisplay($hour, $min, $sec) {
 }
 
 $startButton.addEventListener("click", function() {
-  setInterval(function() {
-    interval();
-    watchDisplay($hours, $minutes, $seconds);
-  }, 1000);
+  if (isIntervalInProgress === false) {
+    setInterval(function() {
+      if (isIntervalInProgress === false) {
+        isIntervalInProgress = true;
+      }
+      interval();
+      watchDisplay($hours, $minutes, $seconds);
+    }, 1000);
+  }
 });
