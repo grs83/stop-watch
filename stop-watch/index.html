@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <link rel="stylesheet" href="style.css"/>
+      <link rel="stylesheet" href="animate.css"/>
+      <title>Stop Watch</title>
+    </head>
+    <body>
+      <div class="container">
+        <h1 class="title">STOP WATCH</h1>
+        <div class="display__wrapper">
+            <p class="display__time">
+              <span id="hours">0</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+            </p>
+            <div class="ball__line">
+              <div class="animate__hour"></div>
+            </div>
+            <div class="ball__line">
+              <div class="animate__min"></div>
+            </div>
+            <div class="ball__line">
+              <div class="animate__sec"></div>
+            </div>
+        </div>
+        <div class="button__outer">
+          <div class="button__inner">
+            <button class="button__sizing" id="button__start">Start</button>
+            <!-- <button class="button__sizing" id="button__pause">Pause</button>
+            <button class="button__sizing" id="button__stop">Stop</button>
+            <div class="button__limit">
+              <input class="button__limit--input" type="number" name="" id="limit__set" placeholder="Enter Ending Limit">
+              <button class="button__limit--button" id="limit__set--enter">Enter</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <script src="main.js"></script>
+    </body>
+</html>
