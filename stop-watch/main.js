@@ -40,8 +40,19 @@ function watchDisplay($hour, $min, $sec) {
 function toggleAnimationOn() {
   var $animate_ball_class = document.querySelectorAll(".animate");
   for (var i = 0; i < $animate_ball_class.length; i++) {
-    if ((isIntervalInProgress = true)) {
+    $animate_ball_class[i].classList.remove("animate__pause");
+    if (isIntervalInProgress === true) {
       $animate_ball_class[i].classList.add("animate__on");
+    }
+  }
+}
+
+function toggleAnimationPause() {
+  var $animate_ball_class = document.querySelectorAll(".animate");
+  $animate_ball_class[2].classList.remove("animate__on");
+  for (var i = 0; i < $animate_ball_class.length - 1; i++) {
+    if (isIntervalInProgress === false) {
+      $animate_ball_class[i].classList.add("animate__pause");
     }
   }
 }
@@ -49,31 +60,32 @@ function toggleAnimationOn() {
 function toggleAnimationOff() {
   var $animate_ball_class = document.querySelectorAll(".animate");
   for (var i = 0; i < $animate_ball_class.length; i++) {
-    if ((isIntervalInProgress = false)) {
-      $animate_ball_class[i].classList.remove("animate__off");
+    if (isIntervalInProgress === false) {
+      $animate_ball_class[i].classList.remove("animate__on");
     }
   }
 }
 
 var isIntervalInProgress = false;
+var intervalID = null;
 
-var startInterval = function initateInterval() {
+function initateInterval() {
   if (isIntervalInProgress === false) {
-    setInterval(function() {
+    intervalID = setInterval(function() {
       isIntervalInProgress = true;
       interval();
       watchDisplay($hours, $minutes, $seconds);
       toggleAnimationOn();
     }, 1000);
   }
-};
+}
 
 $startButton.addEventListener("click", function() {
-  startInterval();
+  initateInterval();
 });
 
 $pauseButton.addEventListener("click", function() {
-  clearInterval(startInterval);
   isIntervalInProgress = false;
-  toggleAnimationOff();
+  toggleAnimationPause();
+  clearInterval(intervalID);
 });

@@ -68,6 +68,10 @@
   animation-name: ball;
 }
 
+.animate__pause {
+  animation-play-state: paused;
+}
+
 @keyframes ball {
   from {
     left: 100px;
