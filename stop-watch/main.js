@@ -1,6 +1,6 @@
 var $startButton = document.querySelector("#button__start");
 var $pauseButton = document.querySelector("#button__pause");
-var $resetButton = document.querySelector("#button__Reset");
+var $resetButton = document.querySelector("#button__reset");
 var $hours = document.querySelector("#hours");
 var $minutes = document.querySelector("#minutes");
 var $seconds = document.querySelector("#seconds");
