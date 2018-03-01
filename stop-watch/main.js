@@ -1,5 +1,6 @@
 var $startButton = document.querySelector("#button__start");
 var $pauseButton = document.querySelector("#button__pause");
+var $resetButton = document.querySelector("#button__reset");
 var $hours = document.querySelector("#hours");
 var $minutes = document.querySelector("#minutes");
 var $seconds = document.querySelector("#seconds");
@@ -39,8 +40,9 @@ function watchDisplay($hour, $min, $sec) {
 
 function toggleAnimationOn() {
   var $animate_ball_class = document.querySelectorAll(".animate");
+  $animate_ball_class[0].classList.remove("animate__pause");
+  $animate_ball_class[1].classList.remove("animate__pause");
   for (var i = 0; i < $animate_ball_class.length; i++) {
-    $animate_ball_class[i].classList.remove("animate__pause");
     if (isIntervalInProgress === true) {
       $animate_ball_class[i].classList.add("animate__on");
     }
@@ -59,6 +61,8 @@ function toggleAnimationPause() {
 
 function toggleAnimationOff() {
   var $animate_ball_class = document.querySelectorAll(".animate");
+  $animate_ball_class[0].classList.remove("animate__pause");
+  $animate_ball_class[1].classList.remove("animate__pause");
   for (var i = 0; i < $animate_ball_class.length; i++) {
     if (isIntervalInProgress === false) {
       $animate_ball_class[i].classList.remove("animate__on");
@@ -87,5 +91,13 @@ $startButton.addEventListener("click", function() {
 $pauseButton.addEventListener("click", function() {
   isIntervalInProgress = false;
   toggleAnimationPause();
+  clearInterval(intervalID);
+});
+
+$resetButton.addEventListener("click", function() {
+  isIntervalInProgress = false;
+  toggleAnimationOff();
+  timerSeconds = 0;
+  watchDisplay($hours, $minutes, $seconds);
   clearInterval(intervalID);
 });

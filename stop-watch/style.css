@@ -72,8 +72,11 @@
 }
 
 #button__pause {
-  background-color: ##bf8a51;
-  /* background-color: #d46f6a; */
+  background-color: #d46f6a;
+}
+
+#button__reset {
+  background-color: #bf8a51;
 }
 
 .button__sizing:hover {
