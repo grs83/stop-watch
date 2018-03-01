@@ -10,7 +10,7 @@
     </head>
     <body>
       <div class="container">
-        <h1 class="title">STOP WATCH</h1>
+        <h1 class="title">3 FROGS STOP WATCH</h1>
         <div class="display__wrapper">
             <p class="display__time">
               <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
@@ -30,10 +30,13 @@
             <button class="button__sizing" id="button__start">Start</button>
             <button class="button__sizing" id="button__pause">Pause</button>
             <button class="button__sizing" id="button__reset">Reset</button>
-            <!-- <div class="button__limit">
-              <input class="button__limit--input" type="number" name="" id="limit__set" placeholder="Enter Ending Limit">
+            <div class="button__limit">
+              <h5 class="set__timer">Set A Timer</h5>
+              <input class="button__limit--input" type="number" name="" id="limit__set--hour" min="0" placeholder=" Hour">
+              <input class="button__limit--input" type="number" name="" id="limit__set--min" min="0" placeholder=" Min">
+              <input class="button__limit--input" type="number" name="" id="limit__set--sec" min="0" placeholder=" Sec">
               <button class="button__limit--button" id="limit__set--enter">Enter</button>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
