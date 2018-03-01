@@ -75,7 +75,7 @@ function toggleAnimationOff() {
   $animate_ball_class[0].classList.remove("animate__pause");
   $animate_ball_class[1].classList.remove("animate__pause");
   for (var i = 0; i < $animate_ball_class.length; i++) {
-    if (isIntervalInProgress === false) {
+    if (isIntervalInProgress === false || timer === true) {
       $animate_ball_class[i].classList.remove("animate__on");
     }
   }
@@ -101,7 +101,6 @@ function initateInterval() {
           animation = true;
           toggleAnimationOn();
         }
-        console.log(animation);
         interval();
         watchDisplay($hours, $minutes, $seconds);
       } else {
@@ -109,7 +108,6 @@ function initateInterval() {
           animation = false;
           toggleAnimationOff();
         }
-        console.log(animation);
         intervalReverse();
         watchDisplay($hours, $minutes, $seconds);
         if (timerSeconds < 1) {
